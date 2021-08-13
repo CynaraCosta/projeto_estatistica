@@ -31,8 +31,20 @@ body <- dashboardBody(
               )
             ),
             fluidRow(
-              box(title = "Serie de precos", width = 12, solidHeader = TRUE,
+              box(title = "Grafico em linha da acao", width = 12, solidHeader = TRUE,
                   plotOutput('sh')
+              )
+            ),
+            
+            fluidRow(
+              box(title = "Histograma da acao", width = 12, solidHeader = TRUE,
+                  plotOutput('hi')
+              )
+            ),
+            
+            fluidRow(
+              box(title = "Boxplot da acao", width = 12, solidHeader = TRUE,
+                  plotOutput('bo')
               )
             ),
     ),
@@ -50,6 +62,30 @@ body <- dashboardBody(
                                  format = 'dd/mm/yy'),
                   uiOutput("timedate_comp"),
                   actionButton('go_comp', 'Submeter')
+              )
+            ),
+            
+            fluidRow(
+              box(title = "Correlacao entre as acoes escolhidas", width = 12, solidHeader = TRUE,
+                  DTOutput('co')
+              )
+            ),
+            
+            fluidRow(
+              box(title = "Grafico de linha das acoes", width = 12, solidHeader = TRUE,
+                  plotOutput('li_comp')
+              )
+            ),
+            
+            fluidRow(
+              box(title = "Grafico em barra das medias das acoes", width = 12, solidHeader = TRUE,
+                  plotOutput('ba_comp')
+              )
+            ),
+            
+            fluidRow(
+              box(title = "Scatterplot das acoes", width = 12, solidHeader = TRUE,
+                  plotOutput('sc_comp')
               )
             ),
     )
