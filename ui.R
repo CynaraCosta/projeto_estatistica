@@ -38,7 +38,7 @@ body <- dashboardBody(
     ),
     tabItem(tabName = 'comp',
             fluidRow(
-              box(title = 'Selecione suas acoes', width = 12, solidHeader = TRUE, status = 'warning',
+              box(title = 'Selecione suas duas acoes', width = 12, solidHeader = TRUE, status = 'warning',
                   selectInput('stock_comp', 'Acao', stocks_list, multiple = TRUE),
                   dateRangeInput('date_comp', strong('Intervalo de tempo desejado'), 
                                  min = '2016-07-01', 

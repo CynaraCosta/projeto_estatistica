@@ -1,14 +1,4 @@
 server <- function(input, output) {
-
-  output$info <- renderDT({
-    Info_DataTable() %>%
-      as.data.frame() %>% 
-      DT::datatable(options=list(
-        language=list(
-          url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json'
-        )
-      ))
-  })
   
   select_stock <- eventReactive(input$go, {
     stock_name <- input$stock
@@ -19,6 +9,19 @@ server <- function(input, output) {
     
     return(df_stock)
   })
+  
+  select_stock_comp <- eventReactive(input$go_comp, {
+    if (lenght(input$stock_comp) != 3){
+      return(select_stock_comp)
+    }
+    
+    df1 <- master_df %>% filter(Stock == input$stock_comp[1])
+    df2 <- master_df %>% filter(Stock == input$stock_comp[2])
+    
+    range <- input$date_comp
+      
+  })
+  
   
 }
 
