@@ -1,4 +1,4 @@
-setwd('/home/cynara/Documents/Documentos Cynara/teste')
+setwd('D:/Projeto 2 estatistica/projeto_estatistica')
 
 source('global.R')
 source('ui.R')
@@ -8,3 +8,4 @@ shinyApp(
   ui = ui,
   server = server
 )
+
