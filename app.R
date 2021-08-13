@@ -1,4 +1,4 @@
-setwd('/home/cynara/Documents/Documentos Cynara/projeto_estatistica')
+setwd('/home/cynara/Documents/Documentos Cynara/teste')
 
 source('global.R')
 source('ui.R')

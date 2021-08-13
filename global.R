@@ -5,7 +5,8 @@ library(ggplot2)
 library(DT)
 library(lubridate)
 
-master_df <- read.csv('tesla_data.csv')
-properties_list <- c('Open', 'Close', 'Volume')
+master_df <- read.csv('stocks.csv')
+stocks_list <- c('AAPL', 'AMZN', 'GOOGL', 'TSLA')
+
 
 master_df$Date <- strptime(master_df$Date, format='%Y-%m-%d')
