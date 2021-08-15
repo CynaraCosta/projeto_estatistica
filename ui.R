@@ -26,7 +26,7 @@ body <- dashboardBody(
               )
             ),
             fluidRow(
-              box(title = "Informacoes sobre a acao", width = 12, solidHeader = TRUE,
+              box(title = "Informacoes sobre os valores de fechamento da acao", width = 12, solidHeader = TRUE,
                   DTOutput('info')
               )
             ),
@@ -72,7 +72,7 @@ body <- dashboardBody(
             ),
             
             fluidRow(
-              box(title = "Grafico de linha das acoes", width = 12, solidHeader = TRUE,
+              box(title = "Grafico de linha das altas das acoes", width = 12, solidHeader = TRUE,
                   plotOutput('li_comp')
               )
             ),
