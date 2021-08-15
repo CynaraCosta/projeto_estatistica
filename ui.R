@@ -11,8 +11,8 @@ body <- dashboardBody(
   tabItems(
     tabItem(tabName = "m",
             fluidRow(
-              box(title = 'Selecione as acoes', width = 12, solidHeader = TRUE, status = 'warning',
-                  selectInput('stock', 'Acao', stocks_list, multiple = FALSE),
+              box(title = 'Selecione as ações', width = 12, solidHeader = TRUE, status = 'warning',
+                  selectInput('stock', 'Ação', stocks_list, multiple = FALSE),
                   dateRangeInput('date', strong('Intervalo de tempo desejado'), 
                                  min = '2016-07-01', 
                                  max = '2021-08-10', 
@@ -26,32 +26,32 @@ body <- dashboardBody(
               )
             ),
             fluidRow(
-              box(title = "Informacoes sobre a acao", width = 12, solidHeader = TRUE,
+              box(title = "Informações sobre a ação", width = 12, solidHeader = TRUE,
                   DTOutput('info')
               )
             ),
             fluidRow(
-              box(title = "Grafico em linha da acao", width = 12, solidHeader = TRUE,
+              box(title = "Gráfico em linha da ação", width = 12, solidHeader = TRUE,
                   plotOutput('sh')
               )
             ),
             
             fluidRow(
-              box(title = "Histograma da acao", width = 12, solidHeader = TRUE,
+              box(title = "Histograma da ação", width = 12, solidHeader = TRUE,
                   plotOutput('hi')
               )
             ),
             
             fluidRow(
-              box(title = "Boxplot da acao", width = 12, solidHeader = TRUE,
+              box(title = "Boxplot da ação", width = 12, solidHeader = TRUE,
                   plotOutput('bo')
               )
             ),
     ),
     tabItem(tabName = 'comp',
             fluidRow(
-              box(title = 'Selecione suas duas acoes', width = 12, solidHeader = TRUE, status = 'warning',
-                  selectInput('stock_comp', 'Acao', stocks_list, multiple = TRUE),
+              box(title = 'Selecione suas duas ações', width = 12, solidHeader = TRUE, status = 'warning',
+                  selectInput('stock_comp', 'Ação', stocks_list, multiple = TRUE),
                   dateRangeInput('date_comp', strong('Intervalo de tempo desejado'), 
                                  min = '2016-07-01', 
                                  max = '2021-08-10', 
@@ -66,25 +66,25 @@ body <- dashboardBody(
             ),
             
             fluidRow(
-              box(title = "Correlacao entre as acoes escolhidas", width = 12, solidHeader = TRUE,
+              box(title = "Correlacao entre as ações escolhidas", width = 12, solidHeader = TRUE,
                   DTOutput('co')
               )
             ),
             
             fluidRow(
-              box(title = "Grafico de linha das acoes", width = 12, solidHeader = TRUE,
+              box(title = "Gráfico de linha das ações", width = 12, solidHeader = TRUE,
                   plotOutput('li_comp')
               )
             ),
             
             fluidRow(
-              box(title = "Grafico em barra das medias das acoes", width = 12, solidHeader = TRUE,
+              box(title = "Gráfico em barra das medias das ações", width = 12, solidHeader = TRUE,
                   plotOutput('ba_comp')
               )
             ),
             
             fluidRow(
-              box(title = "Scatterplot das acoes", width = 12, solidHeader = TRUE,
+              box(title = "Scatterplot das ações", width = 12, solidHeader = TRUE,
                   plotOutput('sc_comp')
               )
             ),
