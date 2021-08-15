@@ -2,7 +2,7 @@ header <- dashboardHeader(title = 'Projeto de Estatistica')
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
-    menuItem("Metricas", tabName = "m", icon = icon("chart-line")),
+    menuItem("Métricas", tabName = "m", icon = icon("chart-line")),
     menuItem("Comparando propriedades", tabName = "comp", icon = icon("chart-bar"))
   )
 )
