@@ -4,11 +4,15 @@ server <- function(input, output) {
     stock_name <- input$stock
     date <- input$date
     
-    df_stock <- master_df %>%
+    df_stock_name <- master_df %>% 
       filter(Stock == stock_name)
+    
+    df_stock <- df_stock_name %>%
+      filter(Date >= date[1] & Date <= date[2])
     
     return(df_stock)
   })
+  
   
   df_options <- list(
     pageLenght = 10,
