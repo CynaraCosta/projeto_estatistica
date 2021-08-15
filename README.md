@@ -1,24 +1,24 @@
 # 👨‍💻 Projeto 2 - Analise das acoes AAPL, AMZN, GOOGL e TSLA 
 Projeto 2 da cadeira Estatistica e Probabilidade para Computacao da UFPE. Precisamos fazer os seguintes To-Do's para esse projeto, envolvendo as acoes da Apple, Amazon, Google e Tesla durante um intervalo de tempo pre-determinado pela equipe. Baixamos os datasets da acoes do Yahoo Finance e juntamos em um csv so com uma coluna adicionada com o nome de 'Stock':
 
-- [ ]  Readme
-- [ ]  Adicionar input para classe a ser analisada
-- [ ]  Adicionar intervalo de datas da análise
-- [ ]  Adicionar uma tabela contendo:
-    - [ ]  média
-    - [ ]  mediana
-    - [ ]  moda
-    - [ ]  desvio padrão
-    - [ ]  valor máximo na série
-    - [ ]  valor mínimo na série
-- [ ]  Adicionar Gráfico em linha da série;
+- [x]  Readme
+- [x]  Adicionar input para classe a ser analisada
+- [x]  Adicionar intervalo de datas da análise
+- [x]  Adicionar uma tabela contendo:
+    - [x]  média
+    - [x]  mediana
+    - [x]  moda
+    - [x]  desvio padrão
+    - [x]  valor máximo na série
+    - [x]  valor mínimo na série
+- [x]  Adicionar Gráfico em linha da série;
 - [ ]  Adicionar histograma da série
 - [ ]  Adicionar boxplot da série
-- [ ]  Adicionar segunda aba com:
-    - [ ]  duas classes a serem analisadas
-    - [ ]  intervalo de datas para a análise
+- [x]  Adicionar segunda aba com:
+    - [x]  duas classes a serem analisadas
+    - [x]  intervalo de datas para a análise
     - [ ]  uma tabela com o valor da correlação entre as classes
-    - [ ]  gráfico de linha das classes
+    - [x]  gráfico de linha das classes
     - [ ]  gráfico em barra das médias de cada classe
     - [ ]  scatterplot das classes
 
