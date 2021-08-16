@@ -40,6 +40,23 @@ server <- function(input, output) {
     
   })
   
+  output$hi <- renderPlot({
+    df <- select_stock()
+    aux <- df$High %>% na.omit() %>% as.numeric()
+    aux1 <- min(aux)
+    aux2 <- max(aux)
+    remove_missing(df)
+
+    df$Date <- ymd(df$Date)
+    class(df$Date)
+    df %>% 
+      ggplot(aes(Date, High, group = 1)) +
+      coord_cartesian(ylim = c(aux1, aux2)) +
+      geom_bar(stat = 'identity') +
+      theme_gray() +
+      scale_x_date(date_labels = "%Y-%m-%d")
+  })
+  
   Info_DataTable <- eventReactive(input$go,{
     df <- select_stock()
     
