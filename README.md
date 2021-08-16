@@ -12,7 +12,7 @@ Projeto 2 da cadeira Estatistica e Probabilidade para Computacao da UFPE. Precis
     - [x]  valor máximo na série
     - [x]  valor mínimo na série
 - [x]  Adicionar Gráfico em linha da série;
-- [ ]  Adicionar histograma da série
+- [x]  Adicionar histograma da série
 - [ ]  Adicionar boxplot da série
 - [x]  Adicionar segunda aba com:
     - [x]  duas classes a serem analisadas

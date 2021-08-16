@@ -1,4 +1,4 @@
-setwd('D:/Projeto 2 estatistica/projeto_estatistica')
+setwd('C:\Users\joao\Documents\projeto Est\projeto_estatistica')
 
 source('global.R')
 source('ui.R')
