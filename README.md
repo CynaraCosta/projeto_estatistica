@@ -17,7 +17,7 @@ Projeto 2 da cadeira Estatistica e Probabilidade para Computacao da UFPE. Precis
 - [x]  Adicionar segunda aba com:
     - [x]  duas classes a serem analisadas
     - [x]  intervalo de datas para a análise
-    - [ ]  uma tabela com o valor da correlação entre as classes
+    - [x]  uma tabela com o valor da correlação entre as classes
     - [x]  gráfico de linha das classes
     - [x]  gráfico em barra das médias de cada classe
     - [x]  scatterplot das classes
