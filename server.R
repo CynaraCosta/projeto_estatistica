@@ -51,15 +51,34 @@ server <- function(input, output) {
     aux1 <- min(aux)
     aux2 <- max(aux)
     remove_missing(df)
-
     df$Date <- ymd(df$Date)
-    class(df$Date)
+    
     df %>% 
       ggplot(aes(Date, High, group = 1)) +
       coord_cartesian(ylim = c(aux1, aux2)) +
-      geom_bar(stat = 'identity') +
+      geom_bar(stat = 'identity', fill = "orange") +
       theme_gray() +
-      scale_x_date(date_labels = "%Y-%m-%d")
+      scale_x_date(date_labels = "%Y-%m-%d") +
+      ylab('Preco de alta da acao em $') +
+      xlab('Intervalo temporal desejado')
+  })
+  
+  output$bo <- renderPlot({
+    df <- select_stock()
+    aux <- df$High %>% na.omit() %>% as.numeric()
+    aux1 <- min(aux)
+    aux2 <- max(aux)
+    remove_missing(df)
+    df$Date <- ymd(df$Date)
+    
+    df %>%
+      ggplot(aes(Date, High)) +
+      geom_boxplot(outlier.colour="red", outlier.shape=16, outlier.size=3, fill = "orange") +
+      theme_gray() +
+      scale_x_date(date_labels = "%Y-%m-%d") +
+      coord_cartesian(ylim = c(aux1, aux2)) +
+      xlab('Intervalo temporal desejado') +
+      ylab('Variacao da acao em $')
   })
   
   ################## Metrics ##################
@@ -166,12 +185,12 @@ server <- function(input, output) {
     
     
     data <- data.frame(
-      Ações=c(stock_name1,stock_name2) ,  
-      Médias=c(mean1,mean2)
+      Acoes=c(stock_name1,stock_name2) ,  
+      Medias=c(mean1,mean2)
     )
     
 
-    ggplot(data, aes(x=Ações, y=Médias)) + 
+    ggplot(data, aes(x=Acoes, y=Medias)) + 
       geom_bar(stat = "identity")
     
   })
