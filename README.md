@@ -22,7 +22,7 @@ Projeto 2 da cadeira Estatistica e Probabilidade para Computacao da UFPE. Precis
     - [x]  gráfico em barra das médias de cada classe
     - [x]  scatterplot das classes
 
-IMAGEM DO PROJETO
+### Imagem do projeto
 ![image](https://user-images.githubusercontent.com/79955775/129764716-a04af51b-756a-467b-876c-4d658a673475.png)
 
 Nossa principal dificuldade foi na selecao do Dataset, ja que foi dificil aprender uma lingugem nova e sentir confianca para formatar os dados do dataset para utilizar no codigo.
