@@ -85,7 +85,7 @@ server <- function(input, output) {
   
   Info_DataTable <- eventReactive(input$go,{
     df <- select_stock()
-    
+
     getmode <- function(value) {
       unique_value <- unique(value)
       unique_value[which.max(tabulate(match(value, unique_value)))]
@@ -227,11 +227,9 @@ server <- function(input, output) {
   
   output$sc_comp <- renderPlot(scatter_line())
   
-
   ################## Correlations Plot ##################
-  
-  
-  correlations <- eventReactive(input$go_comp, {
+
+  correlations1 <- eventReactive(input$go_comp, {
     
     if (length(input$stock_comp) != 2){
       return()
@@ -239,25 +237,42 @@ server <- function(input, output) {
     
     stock_name1 <- input$stock_comp[1]
     stock_name2 <- input$stock_comp[2]
+
     date <- input$date_comp
     
-    data_test1 <- subset(master_df,Stock==stock_name1)
-    data_test2 <- subset(master_df,Stock==stock_name2)
+    data_test1 <- subset(master_df, Stock==stock_name1)
+    data_test2 <- subset(master_df, Stock==stock_name2)
     
-    data_test1 <- subset(data_test1, Date > date[1] & Date < date[2])
-    data_test2 <- subset(data_test2, Date > date[1] & Date < date[2])
+    getmode <- function(value) {
+      unique_value <- unique(value)
+      unique_value[which.max(tabulate(match(value, unique_value)))]
+    }
     
+    m1 <- select(data_test1, Close)
+    Media1 <- apply(m1, 2, mean)
+    Mediana1 <- apply(m1, 2, median)
+    Moda1 <- apply(m1, 2, getmode)
+    Desvio_Padrao1 <- apply(m1, 2, sd)
+    ValorMaximo1 <- apply(m1, 2, max)
+    ValorMinimo1 <- apply(m1, 2, min)
     
-    plot(x=data_test1[,c("Close")],y=data_test2[,c("Close")],
-         xlab= stock_name1,
-         ylab= stock_name2)
+    m2 <- select(data_test2, Close)
+    Media2 <- apply(m2, 2, mean)
+    Mediana2 <- apply(m2, 2, median)
+    Moda2 <- apply(m2, 2, getmode)
+    Desvio_Padrao2 <- apply(m2, 2, sd)
+    ValorMaximo2 <- apply(m2, 2, max)
+    ValorMinimo2 <- apply(m2, 2, min)
     
+    df_tb1 <-  data.frame(stock_name1, Media1, Mediana1, Moda1, Desvio_Padrao1, ValorMaximo1, ValorMinimo1)
+    df_tb2 <-  data.frame(stock_name2, Media2, Mediana2, Moda2, Desvio_Padrao2, ValorMaximo2, ValorMinimo2)
+    colnames(df_tb1) <- c("Stock", "Media", "Mediana", "Moda", "Desvio Padrao", "Valor Maximo", "Valor Minimo")
+    colnames(df_tb2) <- c("Stock", "Media", "Mediana", "Moda", "Desvio Padrao", "Valor Maximo", "Valor Minimo")
+    df_tb <- data.frame(t(df_tb1), t(df_tb2))
+    
+    return(df_tb)
     
   })
   
-  output$co <- renderPlot(correlations())
-  
-  
-  
+    output$co_comp <- renderDT(correlations1())
 }
-

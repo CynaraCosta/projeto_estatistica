@@ -69,7 +69,7 @@ body <- dashboardBody(
             
             fluidRow(
               box(title = "Correlação entre as ações escolhidas", width = 12, solidHeader = TRUE,
-                  DTOutput('co')
+                  DTOutput('co_comp')
               )
             ),
             
