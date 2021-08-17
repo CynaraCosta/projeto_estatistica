@@ -20,7 +20,7 @@ server <- function(input, output) {
       url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json'
     )
   )
-  
+  ################## ? ##################
   output$sh <- renderPlot({
     df <- select_stock()
     
@@ -43,6 +43,7 @@ server <- function(input, output) {
     
     
   })
+  ################## ? ##################
   
   output$hi <- renderPlot({
     df <- select_stock()
@@ -60,6 +61,8 @@ server <- function(input, output) {
       theme_gray() +
       scale_x_date(date_labels = "%Y-%m-%d")
   })
+  
+  ################## Metrics ##################
   
   Info_DataTable <- eventReactive(input$go,{
     df <- select_stock()
@@ -86,6 +89,8 @@ server <- function(input, output) {
     return(df_tb)
   })
   
+  ################## Stocks Info ##################
+  
   output$info <- renderDT({
     Info_DataTable() %>%
       as.data.frame() %>% 
@@ -96,7 +101,7 @@ server <- function(input, output) {
       ))
   })
   
-  
+  ################## Line Plot ##################
   comp_line <- eventReactive(input$go_comp, {
     
     if (length(input$stock_comp) != 2){
@@ -134,4 +139,106 @@ server <- function(input, output) {
   
   
   output$li_comp <- renderPlot(comp_line())
+
+  ################## Bar Plot ##################
+  
+  bar_line <- eventReactive(input$go_comp, {
+    
+    if (length(input$stock_comp) != 2){
+      return()
+    }
+    
+    
+    stock_name1 <- input$stock_comp[1]
+    stock_name2 <- input$stock_comp[2]
+    date <- input$date_comp
+    
+
+    data_test1 <- subset(master_df,Stock==stock_name1)
+    data_test2 <- subset(master_df,Stock==stock_name2)
+    
+    data_test1 <- subset(data_test1,Date > date[1] & Date < date[2])
+    data_test2 <- subset(data_test2,Date > date[1] & Date < date[2])
+    
+    mean1 <- mean(data_test1[["Close"]])
+    mean2 <- mean(data_test2[["Close"]])
+    
+    
+    
+    data <- data.frame(
+      Ações=c(stock_name1,stock_name2) ,  
+      Médias=c(mean1,mean2)
+    )
+    
+
+    ggplot(data, aes(x=Ações, y=Médias)) + 
+      geom_bar(stat = "identity")
+    
+  })
+  
+  output$ba_comp <- renderPlot(bar_line())
+  
+  
+  ################## Scatter Plot ##################
+  
+  
+  scatter_line <- eventReactive(input$go_comp, {
+    
+    if (length(input$stock_comp) != 2){
+      return()
+    }
+    
+    stock_name1 <- input$stock_comp[1]
+    stock_name2 <- input$stock_comp[2]
+    date <- input$date_comp
+    
+    data_test1 <- subset(master_df,Stock==stock_name1)
+    data_test2 <- subset(master_df,Stock==stock_name2)
+    
+    data_test1 <- subset(data_test1, Date > date[1] & Date < date[2])
+    data_test2 <- subset(data_test2, Date > date[1] & Date < date[2])
+    
+    
+    plot(x=data_test1[,c("Close")],y=data_test2[,c("Close")],
+         xlab= stock_name1,
+         ylab= stock_name2)
+    
+    
+  })
+  
+  output$sc_comp <- renderPlot(scatter_line())
+  
+
+  ################## Correlations Plot ##################
+  
+  
+  correlations <- eventReactive(input$go_comp, {
+    
+    if (length(input$stock_comp) != 2){
+      return()
+    }
+    
+    stock_name1 <- input$stock_comp[1]
+    stock_name2 <- input$stock_comp[2]
+    date <- input$date_comp
+    
+    data_test1 <- subset(master_df,Stock==stock_name1)
+    data_test2 <- subset(master_df,Stock==stock_name2)
+    
+    data_test1 <- subset(data_test1, Date > date[1] & Date < date[2])
+    data_test2 <- subset(data_test2, Date > date[1] & Date < date[2])
+    
+    
+    plot(x=data_test1[,c("Close")],y=data_test2[,c("Close")],
+         xlab= stock_name1,
+         ylab= stock_name2)
+    
+    
+  })
+  
+  output$co <- renderPlot(correlations())
+  
+  
+  
 }
+
