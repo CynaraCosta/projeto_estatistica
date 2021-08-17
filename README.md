@@ -23,6 +23,7 @@ Projeto 2 da cadeira Estatistica e Probabilidade para Computacao da UFPE. Precis
     - [x]  scatterplot das classes
 
 IMAGEM DO PROJETO
+![image](https://user-images.githubusercontent.com/79955775/129764626-3efd66d8-a7e8-4925-b7ff-52ebb9de56a9.png)
 
 Nossa principal dificuldade foi na selecao do Dataset, ja que foi dificil aprender uma lingugem nova e sentir confianca para formatar os dados do dataset para utilizar no codigo.
 
