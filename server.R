@@ -185,12 +185,12 @@ server <- function(input, output) {
     
     
     data <- data.frame(
-      Ações=c(stock_name1,stock_name2) ,  
-      Médias=c(mean1,mean2)
+      Acoes=c(stock_name1,stock_name2) ,  
+      Medias=c(mean1,mean2)
     )
     
 
-    ggplot(data, aes(x=Ações, y=Médias)) + 
+    ggplot(data, aes(x=Acoes, y=Medias)) + 
       geom_bar(stat = "identity")
     
   })
